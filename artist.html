@@ -137,11 +137,12 @@
             for (const artist of artists) {
                 const artworks = await sheetsAPI.getArtworksByArtist(artist.Artist_ID);
                 const artworkCount = artworks.length;
-                const featuredImage = artworks.length > 0 ? artworks[0].Image_URL : 'https://via.placeholder.com/300x300?text=No+Image';
+                // Use artist's photo instead of artwork image
+                const featuredImage = artist.Photo_URL || 'https://via.placeholder.com/300x300?text=No+Image';
 
                 html += `
                     <div class="artwork-card">
-                        <img src="${featuredImage}" alt="${artist.Name}" class="artwork-card-image">
+                        <img src="${featuredImage}" alt="${artist.Name}" class="artwork-card-image" style="object-fit: cover;">
                         <div class="artwork-card-content">
                             <h3 class="artwork-card-title">${artist.Name}</h3>
                             <p class="artwork-card-artist">${artist.Country_Connection || 'Indigenous Artist'}</p>
