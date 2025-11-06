@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indigenous Art Gallery - Authentic Indigenous Artwork</title>
+    <meta
+      name="description"
+      content="Discover and purchase authentic Indigenous artwork directly from artists. Supporting Indigenous artists and preserving cultural stories through art."
+    />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/components.css" />
+
+    <!-- Favicon (you can add later) -->
+    <!-- <link rel="icon" type="image/png" href="images/favicon.png"> -->
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="site-header">
+      <div class="header-container">
+        <a href="index.html" class="site-logo" id="site-logo-link">Indigenous Art Gallery</a>
+
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+          ☰
+        </button>
+
+        <nav class="main-nav" id="main-nav">
+          <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="artist.html">Artists</a></li>
+            <li><a href="about.html">About</a></li>
+            <li>
+              <a href="cart.html" class="cart-icon">
+                🛒 Cart
+                <span class="cart-count" id="cart-count">0</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-container">
+        <h1 id="hero-title">Authentic Indigenous Art</h1>
+        <p class="lead-text" id="hero-intro">Loading...</p>
+        <a href="gallery.html" class="btn btn-primary btn-large"
+          >Explore Gallery</a
+        >
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Mission Section -->
+      <section class="content-section">
+        <div class="section-header">
+          <h2>Our Mission</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div id="mission-content" class="text-center">
+          <p class="lead-text">Loading...</p>
+        </div>
+      </section>
+
+      <!-- Featured Artworks -->
+      <section class="content-section">
+        <div class="section-header">
+          <h2>Featured Artworks</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div id="featured-artworks" class="gallery-grid">
+          <!-- Will be populated by JavaScript -->
+        </div>
+      </section>
+
+      <!-- Featured Artist -->
+      <section class="content-section">
+        <div class="featured-artwork" id="featured-artist">
+          <!-- Will be populated by JavaScript -->
+        </div>
+      </section>
+
+      <!-- Call to Action -->
+      <section class="content-section text-center">
+        <h2>Discover More</h2>
+        <p class="lead-text mb-md">
+          Browse our complete collection and support Indigenous artists
+        </p>
+        <a href="gallery.html" class="btn btn-primary btn-large"
+          >View Full Gallery</a
+        >
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>Indigenous Art Gallery</h3>
+          <p>
+            Supporting Indigenous artists and preserving cultural stories
+            through art.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <p><a href="gallery.html">Gallery</a></p>
+          <p><a href="artist.html">Artists</a></p>
+          <p><a href="about.html">About Us</a></p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>For inquiries about artwork or artist applications</p>
+          <p>Email: info@indigenousartgallery.com</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2024 Indigenous Art Gallery. Built with respect for Indigenous
+          culture and artists.
+        </p>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/config.js"></script>
+    <script src="js/sheets.js"></script>
+    <script src="js/cart.js"></script>
+    <script>
+      // Mobile menu toggle
+      document
+        .getElementById("menu-toggle")
+        .addEventListener("click", function () {
+          document.getElementById("main-nav").classList.toggle("active");
+        });
+
+      // Load home page content
+      async function loadHomePage() {
+        try {
+          // Test connection first
+          const connected = await testSheetsConnection();
+          if (!connected) {
+            showError(
+              "featured-artworks",
+              "Unable to connect to data source. Please check configuration."
+            );
+            return;
+          }
+
+          // Load site content
+          const content = await sheetsAPI.getSiteContent();
+
+          // Update hero
+          if (content.Intro) {
+            document.getElementById("hero-intro").textContent = content.Intro;
+          }
+
+          // Update hero background image
+          if (content.Hero) {
+            const heroSection = document.querySelector(".hero");
+            heroSection.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('${content.Hero}')`;
+            heroSection.style.backgroundSize = "cover";
+            heroSection.style.backgroundPosition = "center";
+          }
+
+        // Update logo if provided
+if (content.Logo) {
+    const logoLink = document.getElementById('site-logo-link');
+    logoLink.innerHTML = `<img src="${content.Logo}" alt="RAC Logo" style="height: 40px;">`;
+}
+
+          // Update mission
+          if (content.Mission) {
+            document.getElementById(
+              "mission-content"
+            ).innerHTML = `<p class="lead-text">${content.Mission}</p>`;
+          }
+
+          // Load featured artworks (first 3 available)
+          const artworks = await sheetsAPI.getAvailableArtworks();
+          const featured = artworks.slice(0, 3);
+
+          let html = "";
+          for (const artwork of featured) {
+            const artist = await sheetsAPI.getArtist(artwork.Artist_ID);
+            html += createArtworkCard(artwork, artist);
+          }
+
+          document.getElementById("featured-artworks").innerHTML = html;
+
+          // Load featured artist
+          const artists = await sheetsAPI.getArtists();
+          if (artists.length > 0) {
+            const featuredArtist = artists[0]; // First artist
+            const artistWorks = await sheetsAPI.getArtworksByArtist(
+              featuredArtist.Artist_ID
+            );
+
+            if (artistWorks.length > 0) {
+              document.getElementById("featured-artist").innerHTML = `
+                            <div>
+                                <img src="${artistWorks[0].Image_URL}" alt="${
+                artistWorks[0].Title
+              }" class="featured-image">
+                            </div>
+                            <div class="featured-content">
+                                <h2>Featured Artist: ${featuredArtist.Name}</h2>
+                                <p class="lead-text">${featuredArtist.Bio.substring(
+                                  0,
+                                  300
+                                )}...</p>
+                                <a href="artist.html?id=${
+                                  featuredArtist.Artist_ID
+                                }" class="btn btn-primary">Learn More</a>
+                            </div>
+                        `;
+            }
+          }
+        } catch (error) {
+          console.error("Error loading home page:", error);
+          showError(
+            "featured-artworks",
+            "Error loading content. Please refresh the page."
+          );
+        }
+      }
+
+      // Create artwork card HTML
+      function createArtworkCard(artwork, artist) {
+        return `
+                <div class="artwork-card">
+                    <img src="${artwork.Image_URL}" alt="${
+          artwork.Title
+        }" class="artwork-card-image">
+                    <div class="artwork-card-content">
+                        <h3 class="artwork-card-title">${artwork.Title}</h3>
+                        <p class="artwork-card-artist">by ${
+                          artist ? artist.Name : "Unknown Artist"
+                        }</p>
+                        <p class="artwork-card-story">${artwork.Brief_Story}</p>
+                        <div class="artwork-card-footer">
+                            <span class="artwork-card-price">${formatPrice(
+                              artwork.Price
+                            )}</span>
+                            <a href="artwork.html?id=${
+                              artwork.Artwork_ID
+                            }" class="artwork-card-details">View Details →</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+      }
+
+      // Load page on DOM ready
+      document.addEventListener("DOMContentLoaded", loadHomePage);
+    </script>
+  </body>
+</html>

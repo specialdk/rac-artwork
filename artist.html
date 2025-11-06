@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist - Indigenous Art Gallery</title>
+    <meta name="description" content="Learn about our Indigenous artists and their connection to country.">
+    
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="index.html" class="site-logo" id="site-logo-link">Indigenous Art Gallery</a>
+            
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+                ☰
+            </button>
+            
+            <nav class="main-nav" id="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="artist.html" class="active">Artists</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="cart.html" class="cart-icon">
+                        🛒 Cart
+                        <span class="cart-count" id="cart-count">0</span>
+                    </a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div id="artist-container">
+            <!-- Will be populated by JavaScript -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Indigenous Art Gallery</h3>
+                <p>Supporting Indigenous artists and preserving cultural stories through art.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="gallery.html">Gallery</a></p>
+                <p><a href="artist.html">Artists</a></p>
+                <p><a href="about.html">About Us</a></p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>For inquiries about artwork or artist applications</p>
+                <p>Email: info@indigenousartgallery.com</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Indigenous Art Gallery. Built with respect for Indigenous culture and artists.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/config.js"></script>
+    <script src="js/sheets.js"></script>
+    <script src="js/cart.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('main-nav').classList.toggle('active');
+        });
+
+        // Get artist ID from URL
+        function getArtistId() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('id');
+        }
+
+        // Load artist page
+        async function loadArtistPage() {
+            const artistId = getArtistId();
+            
+            try {
+                showLoading('artist-container');
+
+                // If no artist ID, show all artists
+                if (!artistId) {
+                    await showAllArtists();
+                    return;
+                }
+
+                // Load specific artist
+                const artist = await sheetsAPI.getArtist(artistId);
+                
+                if (!artist) {
+                    showError('artist-container', 'Artist not found.');
+                    return;
+                }
+
+                // Load artist's artworks
+                const artworks = await sheetsAPI.getArtworksByArtist(artistId);
+
+                // Display artist profile
+                displayArtist(artist, artworks);
+
+                // Update page title
+                document.title = `${artist.Name} - Indigenous Art Gallery`;
+
+            } catch (error) {
+                console.error('Error loading artist:', error);
+                showError('artist-container', 'Error loading artist. Please try again.');
+            }
+        }
+
+        // Show all artists (directory page)
+        async function showAllArtists() {
+            const artists = await sheetsAPI.getArtists();
+            const container = document.getElementById('artist-container');
+            
+            let html = `
+                <div class="section-header">
+                    <h1>Our Artists</h1>
+                    <p class="lead-text">Meet the talented Indigenous artists whose work we showcase</p>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="gallery-grid">
+            `;
+
+            for (const artist of artists) {
+                const artworks = await sheetsAPI.getArtworksByArtist(artist.Artist_ID);
+                const artworkCount = artworks.length;
+                const featuredImage = artworks.length > 0 ? artworks[0].Image_URL : 'https://via.placeholder.com/300x300?text=No+Image';
+
+                html += `
+                    <div class="artwork-card">
+                        <img src="${featuredImage}" alt="${artist.Name}" class="artwork-card-image">
+                        <div class="artwork-card-content">
+                            <h3 class="artwork-card-title">${artist.Name}</h3>
+                            <p class="artwork-card-artist">${artist.Country_Connection || 'Indigenous Artist'}</p>
+                            <p class="artwork-card-story">${artist.Bio.substring(0, 120)}...</p>
+                            <div class="artwork-card-footer">
+                                <span class="artwork-card-price">${artworkCount} artwork${artworkCount !== 1 ? 's' : ''}</span>
+                                <a href="artist.html?id=${artist.Artist_ID}" class="artwork-card-details">View Profile →</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            html += '</div>';
+            container.innerHTML = html;
+        }
+
+        // Display single artist profile
+        function displayArtist(artist, artworks) {
+            const container = document.getElementById('artist-container');
+            
+            const artistImage = artist.Photo_URL || 'https://via.placeholder.com/300x400?text=Artist+Photo';
+            
+            let html = `
+                <div class="artist-profile">
+                    <div class="artist-image-container">
+                        <img src="${artistImage}" alt="${artist.Name}" class="artist-image">
+                        <p class="artist-connection">${artist.Country_Connection || 'Indigenous Artist'}</p>
+                    </div>
+                    
+                    <div class="artist-bio">
+                        <h1 class="artist-name">${artist.Name}</h1>
+                        <div class="section-divider" style="margin-left: 0;"></div>
+                        <p>${artist.Bio}</p>
+                    </div>
+                </div>
+            `;
+
+            // Add artworks section
+            if (artworks.length > 0) {
+                html += `
+                    <div class="artist-works-section">
+                        <h2>Artworks by ${artist.Name}</h2>
+                        <div class="gallery-grid mt-lg">
+                `;
+
+                artworks.forEach(artwork => {
+                    html += `
+                        <div class="artwork-card">
+                            <img src="${artwork.Image_URL}" alt="${artwork.Title}" class="artwork-card-image">
+                            <div class="artwork-card-content">
+                                <h3 class="artwork-card-title">${artwork.Title}</h3>
+                                <p class="artwork-card-story">${artwork.Brief_Story}</p>
+                                <div class="artwork-card-footer">
+                                    <span class="artwork-card-price">${formatPrice(artwork.Price)}</span>
+                                    <a href="artwork.html?id=${artwork.Artwork_ID}" class="artwork-card-details">View Details →</a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                html += `
+                        </div>
+                    </div>
+                `;
+            }
+
+            container.innerHTML = html;
+        }
+
+        // Load and update logo from Google Sheets
+    async function updateLogo() {
+        try {
+            const content = await sheetsAPI.getSiteContent();
+            
+            if (content.Logo) {
+                const logoLink = document.getElementById('site-logo-link');
+                logoLink.innerHTML = `<img src="${content.Logo}" alt="RAC Logo" style="height: 40px;">`;
+            }
+        } catch (error) {
+            console.log('Could not load logo:', error);
+            // Keep text logo as fallback
+        }
+    }
+    
+    // Run when page loads
+    document.addEventListener('DOMContentLoaded', updateLogo);
+    
+        // Load page on DOM ready
+        document.addEventListener('DOMContentLoaded', loadArtistPage);
+    </script>
+</body>
+</html>
