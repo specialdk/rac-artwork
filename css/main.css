@@ -401,15 +401,6 @@ p {
   }
 }
 
-@keyframes weavingFlow {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(120px);
-  }
-}
-
 /* ========================================
    INSTRUCTIONS:
    
