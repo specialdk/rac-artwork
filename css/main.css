@@ -364,7 +364,7 @@ p {
     350px 350px, 180px 180px;
   background-position: 10px 20px, 50px 80px, 120px 40px, 200px 100px, 80px 150px,
     150px 60px;
-  animation: sparkleGrow 3s ease-in-out infinite;
+  animation: sparkleFade 3s ease-in-out infinite;
   z-index: 0;
 }
 
@@ -385,18 +385,16 @@ p {
     radial-gradient(circle, rgba(204, 107, 44, 0.4) 40px, transparent 40px);
   background-size: 220px 220px, 280px 280px, 320px 320px, 400px 400px;
   background-position: 180px 50px, 30px 120px, 250px 150px, 100px 30px;
-  animation: sparkleGrow 2.5s ease-in-out infinite reverse;
+  animation: sparkleFade 2.5s ease-in-out infinite reverse;
   z-index: 0;
 }
 
-@keyframes sparkleGrow {
+@keyframes sparkleFade {
   0%,
   100% {
-    transform: scale(0.3);
-    opacity: 0.4;
+    opacity: 0.3;
   }
   50% {
-    transform: scale(1.2);
     opacity: 1;
   }
 }
