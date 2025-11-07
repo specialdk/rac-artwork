@@ -125,261 +125,14 @@ p {
    Header & Navigation
    ======================================== */
 
-/* ========================================
-   UPDATED HEADER & HERO SECTIONS
-   Copy these to replace the existing sections in your main.css
-   ======================================== */
-
-/* ========================================
-   OPTION 1: VERY SUBTLE (Recommended)
-   ======================================== */
-
-/* Header with subtle crosshatch pattern 
 .site-header {
   background-color: var(--color-white);
-  background-image: repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 15px,
-      rgba(232, 213, 181, 0.04) 15px,
-      rgba(232, 213, 181, 0.04) 30px
-    ),
-    repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 15px,
-      rgba(204, 107, 44, 0.02) 15px,
-      rgba(204, 107, 44, 0.02) 30px
-    );
   border-bottom: 1px solid var(--color-light-gray);
   position: sticky;
   top: 0;
   z-index: 1000;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
-
-/* Hero with animated subtle pattern - primarily white 
-.hero {
-  position: relative;
-  background-color: #fefefe;
-  padding: var(--spacing-xl) var(--spacing-md);
-  text-align: center;
-  border-bottom: 3px solid var(--color-ochre);
-  overflow: hidden;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: repeating-linear-gradient(
-      45deg,
-      transparent 0px,
-      transparent 20px,
-      rgba(232, 213, 181, 0.03) 20px,
-      rgba(232, 213, 181, 0.03) 40px
-    ),
-    repeating-linear-gradient(
-      -45deg,
-      transparent 0px,
-      transparent 20px,
-      rgba(204, 107, 44, 0.02) 20px,
-      rgba(204, 107, 44, 0.02) 40px
-    );
-  opacity: 0.5;
-  animation: gentleFlow 90s linear infinite;
-  z-index: 0;
-}
-
-.hero-container {
-  position: relative;
-  z-index: 1;
-}
-
-@keyframes gentleFlow {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(50px, 30px) scale(1.02);
-  }
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-}
-
-/* ========================================
-   OPTION 2: MEDIUM SUBTLE (Slightly More Visible)
-   ======================================== */
-
-/* Uncomment this option if you want slightly more visible patterns 
-
-.site-header {
-  background-color: var(--color-white);
-  background-image: linear-gradient(
-      0deg,
-      rgba(232, 213, 181, 0.05) 1px,
-      transparent 1px
-    ),
-    linear-gradient(90deg, rgba(204, 107, 44, 0.03) 1px, transparent 1px);
-  background-size: 50px 50px;
-  border-bottom: 1px solid var(--color-light-gray);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.hero {
-  position: relative;
-  background-color: #fdfdfb;
-  padding: var(--spacing-xl) var(--spacing-md);
-  text-align: center;
-  border-bottom: 3px solid var(--color-ochre);
-  overflow: hidden;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 25px,
-      rgba(232, 213, 181, 0.06) 25px,
-      rgba(232, 213, 181, 0.06) 50px
-    ),
-    repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 25px,
-      rgba(204, 107, 44, 0.04) 25px,
-      rgba(204, 107, 44, 0.04) 50px
-    );
-  opacity: 0.6;
-  animation: gentleFlow 80s linear infinite;
-  z-index: 0;
-}
-*/
-
-/* ========================================
-   OPTION 3: WEAVING BANDS (Inspired by the photo)
-   ======================================== */
-
-/* Uncomment this for horizontal band pattern like traditional weaving */
-
-.site-header {
-  background-color: var(--color-white);
-  background-image: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 25px,
-    rgba(232, 213, 181, 0.04) 25px,
-    rgba(232, 213, 181, 0.04) 26px,
-    transparent 26px,
-    transparent 50px,
-    rgba(204, 107, 44, 0.02) 50px,
-    rgba(204, 107, 44, 0.02) 51px
-  );
-  border-bottom: 1px solid var(--color-light-gray);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.hero {
-  position: relative;
-  background-color: var(--color-ochre);
-  padding: var(--spacing-xl) var(--spacing-md);
-  text-align: center;
-  border-bottom: 3px solid var(--color-deep-red);
-  overflow: hidden;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: 
-    /* Small sparkles - ochre */ radial-gradient(
-      circle,
-      rgba(204, 107, 44, 0.6) 2px,
-      transparent 2px
-    ),
-    /* Medium sparkles - sand */
-      radial-gradient(circle, rgba(232, 213, 181, 0.5) 8px, transparent 8px),
-    /* Large sparkles - deep red */
-      radial-gradient(circle, rgba(139, 38, 53, 0.4) 20px, transparent 20px),
-    /* Extra large - ochre */
-      radial-gradient(circle, rgba(204, 107, 44, 0.3) 35px, transparent 35px),
-    /* Huge sparkles - sand */
-      radial-gradient(circle, rgba(232, 213, 181, 0.4) 50px, transparent 50px),
-    /* Small sparkles - deep red */
-      radial-gradient(circle, rgba(139, 38, 53, 0.5) 3px, transparent 3px);
-  background-size: 487px 331px, 613px 419px, 751px 523px, 839px 641px,
-    971px 757px, 421px 347px;
-  background-position: 23px 67px, 197px 143px, 341px 89px, 119px 271px,
-    283px 41px, 439px 181px;
-  animation: sparkleFade 3s ease-in-out infinite;
-  z-index: 0;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: radial-gradient(
-      circle,
-      rgba(204, 107, 44, 0.5) 5px,
-      transparent 5px
-    ),
-    radial-gradient(circle, rgba(232, 213, 181, 0.6) 15px, transparent 15px),
-    radial-gradient(circle, rgba(139, 38, 53, 0.4) 25px, transparent 25px),
-    radial-gradient(circle, rgba(204, 107, 44, 0.4) 40px, transparent 40px);
-  background-size: 563px 433px, 691px 509px, 809px 619px, 883px 701px;
-  background-position: 317px 97px, 71px 239px, 461px 157px, 193px 373px;
-  animation: sparkleFade 2.5s ease-in-out infinite reverse;
-  z-index: 0;
-}
-
-@keyframes sparkleFade {
-  0%,
-  100% {
-    opacity: 0.3;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
-/* ========================================
-   INSTRUCTIONS:
-   
-   1. Open css/main.css in VS Code
-   2. Find the .site-header section (around line 127)
-   3. Replace it with Option 1 above
-   4. Find the .hero section (around line 137)
-   5. Replace it with Option 1 above
-   6. Save and test
-   7. If you want to try Option 2 or 3, uncomment those sections
-   
-   The patterns are VERY subtle - exactly as you requested!
-   They use your existing color variables.
-   ======================================== */
 
 .header-container {
   max-width: var(--max-width);
@@ -452,8 +205,9 @@ p {
 }
 
 /* ========================================
-   Hero Section
+   Hero Section with Sparkle Effect
    ======================================== */
+
 .hero {
   position: relative;
   background-color: var(--color-ochre);
@@ -461,6 +215,65 @@ p {
   text-align: center;
   border-bottom: 3px solid var(--color-deep-red);
   overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    /* Small sparkles - ochre */ radial-gradient(
+      circle,
+      rgba(204, 107, 44, 0.6) 2px,
+      transparent 2px
+    ),
+    /* Medium sparkles - sand */
+      radial-gradient(circle, rgba(232, 213, 181, 0.5) 8px, transparent 8px),
+    /* Large sparkles - deep red */
+      radial-gradient(circle, rgba(139, 38, 53, 0.4) 20px, transparent 20px),
+    /* Extra large - ochre */
+      radial-gradient(circle, rgba(204, 107, 44, 0.3) 35px, transparent 35px),
+    /* Huge sparkles - sand */
+      radial-gradient(circle, rgba(232, 213, 181, 0.4) 50px, transparent 50px),
+    /* Small sparkles - deep red */
+      radial-gradient(circle, rgba(139, 38, 53, 0.5) 3px, transparent 3px);
+  background-size: 487px 331px, 613px 419px, 751px 523px, 839px 641px,
+    971px 757px, 421px 347px;
+  background-position: 23px 67px, 197px 143px, 341px 89px, 119px 271px,
+    283px 41px, 439px 181px;
+  animation: sparkleFade 3s ease-in-out infinite;
+  z-index: 0;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(
+      circle,
+      rgba(204, 107, 44, 0.5) 5px,
+      transparent 5px
+    ),
+    radial-gradient(circle, rgba(232, 213, 181, 0.6) 15px, transparent 15px),
+    radial-gradient(circle, rgba(139, 38, 53, 0.4) 25px, transparent 25px),
+    radial-gradient(circle, rgba(204, 107, 44, 0.4) 40px, transparent 40px);
+  background-size: 563px 433px, 691px 509px, 809px 619px, 883px 701px;
+  background-position: 317px 97px, 71px 239px, 461px 157px, 193px 373px;
+  animation: sparkleFade 2.5s ease-in-out infinite reverse;
+  z-index: 0;
+}
+
+.hero-container {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-width);
+  margin: 0 auto;
 }
 
 .hero h1 {
@@ -475,6 +288,16 @@ p {
   margin: 0 auto var(--spacing-lg);
   color: var(--color-white);
   font-weight: 600;
+}
+
+@keyframes sparkleFade {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 /* ========================================
