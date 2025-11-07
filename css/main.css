@@ -327,10 +327,10 @@ p {
       radial-gradient(circle, rgba(232, 213, 181, 0.4) 50px, transparent 50px),
     /* Small sparkles - deep red */
       radial-gradient(circle, rgba(139, 38, 53, 0.5) 3px, transparent 3px);
-  background-size: 217px 173px, 283px 197px, 311px 229px, 379px 271px,
-    421px 337px, 193px 167px;
-  background-position: 17px 23px, 89px 67px, 143px 107px, 211px 139px,
-    71px 181px, 163px 53px;
+  background-size: 487px 331px, 613px 419px, 751px 523px, 839px 641px,
+    971px 757px, 421px 347px;
+  background-position: 23px 67px, 197px 143px, 341px 89px, 119px 271px,
+    283px 41px, 439px 181px;
   animation: sparkleFade 3s ease-in-out infinite;
   z-index: 0;
 }
@@ -350,8 +350,8 @@ p {
     radial-gradient(circle, rgba(232, 213, 181, 0.6) 15px, transparent 15px),
     radial-gradient(circle, rgba(139, 38, 53, 0.4) 25px, transparent 25px),
     radial-gradient(circle, rgba(204, 107, 44, 0.4) 40px, transparent 40px);
-  background-size: 251px 199px, 307px 241px, 359px 277px, 397px 317px;
-  background-position: 127px 41px, 37px 131px, 223px 157px, 97px 29px;
+  background-size: 563px 433px, 691px 509px, 809px 619px, 883px 701px;
+  background-position: 317px 97px, 71px 239px, 461px 157px, 193px 373px;
   animation: sparkleFade 2.5s ease-in-out infinite reverse;
   z-index: 0;
 }
