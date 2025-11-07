@@ -225,25 +225,80 @@ p {
   right: 0;
   bottom: 0;
   background-image: 
-    /* Small sparkles - ochre */ radial-gradient(
+    /* Small woven mat - sand */ radial-gradient(
       circle,
-      rgba(204, 107, 44, 0.6) 2px,
-      transparent 2px
+      transparent 8px,
+      rgba(232, 213, 181, 0.4) 8px,
+      rgba(232, 213, 181, 0.4) 9px,
+      transparent 9px
     ),
-    /* Medium sparkles - sand */
-      radial-gradient(circle, rgba(232, 213, 181, 0.5) 8px, transparent 8px),
-    /* Large sparkles - deep red */
-      radial-gradient(circle, rgba(139, 38, 53, 0.4) 20px, transparent 20px),
-    /* Extra large - ochre */
-      radial-gradient(circle, rgba(204, 107, 44, 0.3) 35px, transparent 35px),
-    /* Huge sparkles - sand */
-      radial-gradient(circle, rgba(232, 213, 181, 0.4) 50px, transparent 50px),
-    /* Small sparkles - deep red */
-      radial-gradient(circle, rgba(139, 38, 53, 0.5) 3px, transparent 3px);
-  background-size: 217px 173px, 283px 197px, 311px 229px, 379px 271px,
-    421px 337px, 193px 167px;
-  background-position: 17px 23px, 89px 67px, 143px 107px, 211px 139px,
-    71px 181px, 163px 53px;
+    radial-gradient(
+      circle,
+      transparent 12px,
+      rgba(232, 213, 181, 0.3) 12px,
+      rgba(232, 213, 181, 0.3) 13px,
+      transparent 13px
+    ),
+    radial-gradient(
+      circle,
+      transparent 16px,
+      rgba(232, 213, 181, 0.2) 16px,
+      rgba(232, 213, 181, 0.2) 17px,
+      transparent 17px
+    ),
+    radial-gradient(circle, rgba(232, 213, 181, 0.5) 20px, transparent 20px),
+    /* Medium woven mat - ochre */
+      radial-gradient(
+        circle,
+        transparent 15px,
+        rgba(204, 107, 44, 0.4) 15px,
+        rgba(204, 107, 44, 0.4) 16px,
+        transparent 16px
+      ),
+    radial-gradient(
+      circle,
+      transparent 22px,
+      rgba(204, 107, 44, 0.3) 22px,
+      rgba(204, 107, 44, 0.3) 23px,
+      transparent 23px
+    ),
+    radial-gradient(
+      circle,
+      transparent 28px,
+      rgba(204, 107, 44, 0.2) 28px,
+      rgba(204, 107, 44, 0.2) 29px,
+      transparent 29px
+    ),
+    radial-gradient(circle, rgba(204, 107, 44, 0.5) 35px, transparent 35px),
+    /* Large woven mat - deep red */
+      radial-gradient(
+        circle,
+        transparent 25px,
+        rgba(139, 38, 53, 0.3) 25px,
+        rgba(139, 38, 53, 0.3) 26px,
+        transparent 26px
+      ),
+    radial-gradient(
+      circle,
+      transparent 35px,
+      rgba(139, 38, 53, 0.25) 35px,
+      rgba(139, 38, 53, 0.25) 36px,
+      transparent 36px
+    ),
+    radial-gradient(
+      circle,
+      transparent 45px,
+      rgba(139, 38, 53, 0.2) 45px,
+      rgba(139, 38, 53, 0.2) 46px,
+      transparent 46px
+    ),
+    radial-gradient(circle, rgba(139, 38, 53, 0.4) 55px, transparent 55px);
+  background-size: 487px 331px, 487px 331px, 487px 331px, 487px 331px,
+    613px 419px, 613px 419px, 613px 419px, 613px 419px, 751px 523px, 751px 523px,
+    751px 523px, 751px 523px;
+  background-position: 23px 67px, 23px 67px, 23px 67px, 23px 67px, 197px 143px,
+    197px 143px, 197px 143px, 197px 143px, 341px 89px, 341px 89px, 341px 89px,
+    341px 89px;
   animation: sparkleFade 3s ease-in-out infinite;
   z-index: 0;
 }
@@ -255,16 +310,31 @@ p {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: radial-gradient(
+  background-image: 
+    /* Extra large woven mat - earth brown */ radial-gradient(
       circle,
-      rgba(204, 107, 44, 0.5) 5px,
-      transparent 5px
+      transparent 30px,
+      rgba(107, 68, 35, 0.3) 30px,
+      rgba(107, 68, 35, 0.3) 31px,
+      transparent 31px
     ),
-    radial-gradient(circle, rgba(232, 213, 181, 0.6) 15px, transparent 15px),
-    radial-gradient(circle, rgba(139, 38, 53, 0.4) 25px, transparent 25px),
-    radial-gradient(circle, rgba(204, 107, 44, 0.4) 40px, transparent 40px);
-  background-size: 251px 199px, 307px 241px, 359px 277px, 397px 317px;
-  background-position: 127px 41px, 37px 131px, 223px 157px, 97px 29px;
+    radial-gradient(
+      circle,
+      transparent 42px,
+      rgba(107, 68, 35, 0.25) 42px,
+      rgba(107, 68, 35, 0.25) 43px,
+      transparent 43px
+    ),
+    radial-gradient(
+      circle,
+      transparent 54px,
+      rgba(107, 68, 35, 0.2) 54px,
+      rgba(107, 68, 35, 0.2) 55px,
+      transparent 55px
+    ),
+    radial-gradient(circle, rgba(107, 68, 35, 0.4) 65px, transparent 65px);
+  background-size: 839px 641px, 839px 641px, 839px 641px, 839px 641px;
+  background-position: 119px 271px, 119px 271px, 119px 271px, 119px 271px;
   animation: sparkleFade 2.5s ease-in-out infinite reverse;
   z-index: 0;
 }
