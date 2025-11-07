@@ -276,23 +276,12 @@ p {
 /* Uncomment this for horizontal band pattern like traditional weaving */
 
 .site-header {
-  background-color: var(--color-white);
-  background-image: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 25px,
-    rgba(232, 213, 181, 0.04) 25px,
-    rgba(232, 213, 181, 0.04) 26px,
-    transparent 26px,
-    transparent 50px,
-    rgba(204, 107, 44, 0.02) 50px,
-    rgba(204, 107, 44, 0.02) 51px
-  );
-  border-bottom: 1px solid var(--color-light-gray);
+  background-color: var(--color-ochre);
+  border-bottom: 3px solid var(--color-deep-red);
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .hero {
@@ -426,13 +415,13 @@ p {
 .site-logo {
   font-family: var(--font-primary);
   font-size: 1.5rem;
-  color: var(--color-charcoal);
+  color: var(--color-white);
   font-weight: bold;
   text-decoration: none;
 }
 
 .site-logo:hover {
-  color: var(--color-accent);
+  color: var(--color-sand);
 }
 
 .main-nav ul {
@@ -443,8 +432,8 @@ p {
 }
 
 .main-nav a {
-  color: var(--color-charcoal);
-  font-weight: 500;
+  color: var(--color-white);
+  font-weight: bold;
   padding: var(--spacing-xs) var(--spacing-sm);
   border-radius: var(--border-radius);
   transition: var(--transition);
@@ -452,13 +441,24 @@ p {
 
 .main-nav a:hover,
 .main-nav a.active {
-  color: var(--color-accent);
-  background-color: var(--color-off-white);
+  color: var(--color-charcoal);
+  background-color: var(--color-sand);
 }
 
 .cart-icon {
   position: relative;
   font-size: 1.2rem;
+  color: var(--color-white);
+  font-weight: bold;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--color-white);
 }
 
 .cart-count {
@@ -472,16 +472,6 @@ p {
   border-radius: 50%;
   min-width: 18px;
   text-align: center;
-}
-
-/* Mobile menu toggle */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: var(--color-charcoal);
 }
 
 /* ========================================
