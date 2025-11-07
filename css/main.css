@@ -311,24 +311,41 @@ p {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: repeating-linear-gradient(
-    0deg,
-    transparent 0px,
-    transparent 40px,
-    rgba(232, 213, 181, 0.25) 40px,
-    /* Increased from 0.06 to 0.25 */ rgba(232, 213, 181, 0.25) 42px,
-    transparent 42px,
-    transparent 80px,
-    rgba(204, 107, 44, 0.15) 80px,
-    /* Increased from 0.03 to 0.15 */ rgba(204, 107, 44, 0.15) 81px,
-    transparent 81px,
-    transparent 120px,
-    rgba(139, 38, 53, 0.12) 120px,
-    /* Increased from 0.02 to 0.12 */ rgba(139, 38, 53, 0.12) 121px
-  );
-  opacity: 0.8; /* Increased from 0.5 to 0.8 */
-  animation: weavingFlow 100s linear infinite;
+  background-image: 
+    /* Layer 1: Ochre sparkles */ radial-gradient(
+      circle,
+      rgba(204, 107, 44, 0.4) 1px,
+      transparent 1px
+    ),
+    radial-gradient(circle, rgba(204, 107, 44, 0.3) 1px, transparent 1px),
+    /* Layer 2: Sand sparkles */
+      radial-gradient(circle, rgba(232, 213, 181, 0.5) 1.5px, transparent 1.5px),
+    radial-gradient(circle, rgba(232, 213, 181, 0.4) 1px, transparent 1px),
+    /* Layer 3: Deep red sparkles */
+      radial-gradient(circle, rgba(139, 38, 53, 0.3) 1px, transparent 1px);
+  background-size: 80px 80px, 120px 120px, 100px 100px, 150px 150px, 90px 90px;
+  background-position: 0 0, 40px 40px, 20px 20px, 60px 10px, 10px 50px;
+  opacity: 1;
+  animation: sparkleShimmer 8s ease-in-out infinite;
   z-index: 0;
+}
+
+@keyframes sparkleShimmer {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: translateY(0);
+  }
+  25% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(5px);
+  }
+  75% {
+    opacity: 1;
+  }
 }
 
 @keyframes weavingFlow {
