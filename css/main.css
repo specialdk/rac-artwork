@@ -315,18 +315,18 @@ p {
     0deg,
     transparent 0px,
     transparent 40px,
-    rgba(232, 213, 181, 0.06) 40px,
-    rgba(232, 213, 181, 0.06) 42px,
+    rgba(232, 213, 181, 0.25) 40px,
+    /* Increased from 0.06 to 0.25 */ rgba(232, 213, 181, 0.25) 42px,
     transparent 42px,
     transparent 80px,
-    rgba(204, 107, 44, 0.03) 80px,
-    rgba(204, 107, 44, 0.03) 81px,
+    rgba(204, 107, 44, 0.15) 80px,
+    /* Increased from 0.03 to 0.15 */ rgba(204, 107, 44, 0.15) 81px,
     transparent 81px,
     transparent 120px,
-    rgba(139, 38, 53, 0.02) 120px,
-    rgba(139, 38, 53, 0.02) 121px
+    rgba(139, 38, 53, 0.12) 120px,
+    /* Increased from 0.02 to 0.12 */ rgba(139, 38, 53, 0.12) 121px
   );
-  opacity: 0.5;
+  opacity: 0.8; /* Increased from 0.5 to 0.8 */
   animation: weavingFlow 100s linear infinite;
   z-index: 0;
 }
