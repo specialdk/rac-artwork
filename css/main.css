@@ -295,14 +295,14 @@ p {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-/*.hero {
+.hero {
   position: relative;
   background-color: #fefefe;
   padding: var(--spacing-xl) var(--spacing-md);
   text-align: center;
   border-bottom: 3px solid var(--color-ochre);
   overflow: hidden;
-}*/
+}
 
 .hero::before {
   content: "";
@@ -427,7 +427,7 @@ p {
 
 /* ========================================
    Hero Section
-   ======================================== */
+   ======================================== 
 
 .hero {
   background-color: var(--color-off-white);
@@ -451,6 +451,7 @@ p {
   max-width: 700px;
   margin: 0 auto var(--spacing-lg);
 }
+*/
 
 /* ========================================
    Main Content
