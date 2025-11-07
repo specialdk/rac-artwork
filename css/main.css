@@ -2,7 +2,10 @@
    Indigenous Art Gallery - Main Styles
    ======================================== */
 
-/* CSS Variables for consistent theming */
+/* At the very top of your CSS file, add these Google Font imports */
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap");
+
+/* Then update your :root variables */
 :root {
   /* Indigenous-inspired earth tones */
   --color-ochre: #cc6b2c;
@@ -23,8 +26,8 @@
   --color-accent-hover: var(--color-deep-red);
 
   /* Typography */
-  --font-primary: "Georgia", "Times New Roman", serif;
-  --font-secondary: "Helvetica Neue", Arial, sans-serif;
+  --font-primary: "Oswald", "Arial Black", sans-serif; /* Changed for hero */
+  --font-secondary: "Montserrat", "Helvetica Neue", Arial, sans-serif; /* Changed for body/header */
 
   /* Spacing */
   --spacing-xs: 8px;
@@ -37,6 +40,26 @@
   --max-width: 1200px;
   --border-radius: 4px;
   --transition: all 0.3s ease;
+}
+
+/* Update hero title styling */
+.hero h1 {
+  font-size: 3.5rem; /* Slightly larger */
+  margin-bottom: var(--spacing-md);
+  color: var(--color-white);
+  font-weight: 700;
+  letter-spacing: 2px; /* Add spacing for impact */
+  text-transform: uppercase; /* Makes it more bold */
+}
+
+/* Update header logo */
+.site-logo {
+  font-family: var(--font-secondary);
+  font-size: 1.4rem;
+  color: var(--color-charcoal);
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.5px;
 }
 
 /* ========================================
