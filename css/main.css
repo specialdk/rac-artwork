@@ -215,7 +215,7 @@ p {
    OPTION 2: MEDIUM SUBTLE (Slightly More Visible)
    ======================================== */
 
-/* Uncomment this option if you want slightly more visible patterns */
+/* Uncomment this option if you want slightly more visible patterns 
 
 .site-header {
   background-color: var(--color-white);
@@ -275,72 +275,69 @@ p {
 
 /* Uncomment this for horizontal band pattern like traditional weaving */
 
-/*
 .site-header {
-    background-color: var(--color-white);
-    background-image: 
-        repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 25px,
-            rgba(232, 213, 181, 0.04) 25px,
-            rgba(232, 213, 181, 0.04) 26px,
-            transparent 26px,
-            transparent 50px,
-            rgba(204, 107, 44, 0.02) 50px,
-            rgba(204, 107, 44, 0.02) 51px
-        );
-    border-bottom: 1px solid var(--color-light-gray);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  background-color: var(--color-white);
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 25px,
+    rgba(232, 213, 181, 0.04) 25px,
+    rgba(232, 213, 181, 0.04) 26px,
+    transparent 26px,
+    transparent 50px,
+    rgba(204, 107, 44, 0.02) 50px,
+    rgba(204, 107, 44, 0.02) 51px
+  );
+  border-bottom: 1px solid var(--color-light-gray);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .hero {
-    position: relative;
-    background-color: #FEFEFE;
-    padding: var(--spacing-xl) var(--spacing-md);
-    text-align: center;
-    border-bottom: 3px solid var(--color-ochre);
-    overflow: hidden;
+  position: relative;
+  background-color: #fefefe;
+  padding: var(--spacing-xl) var(--spacing-md);
+  text-align: center;
+  border-bottom: 3px solid var(--color-ochre);
+  overflow: hidden;
 }
 
 .hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: 
-        repeating-linear-gradient(
-            0deg,
-            transparent 0px,
-            transparent 40px,
-            rgba(232, 213, 181, 0.06) 40px,
-            rgba(232, 213, 181, 0.06) 42px,
-            transparent 42px,
-            transparent 80px,
-            rgba(204, 107, 44, 0.03) 80px,
-            rgba(204, 107, 44, 0.03) 81px,
-            transparent 81px,
-            transparent 120px,
-            rgba(139, 38, 53, 0.02) 120px,
-            rgba(139, 38, 53, 0.02) 121px
-        );
-    opacity: 0.5;
-    animation: weavingFlow 100s linear infinite;
-    z-index: 0;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 40px,
+    rgba(232, 213, 181, 0.06) 40px,
+    rgba(232, 213, 181, 0.06) 42px,
+    transparent 42px,
+    transparent 80px,
+    rgba(204, 107, 44, 0.03) 80px,
+    rgba(204, 107, 44, 0.03) 81px,
+    transparent 81px,
+    transparent 120px,
+    rgba(139, 38, 53, 0.02) 120px,
+    rgba(139, 38, 53, 0.02) 121px
+  );
+  opacity: 0.5;
+  animation: weavingFlow 100s linear infinite;
+  z-index: 0;
 }
 
 @keyframes weavingFlow {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(120px);
-    }
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(120px);
+  }
 }
 */
 
