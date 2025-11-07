@@ -1,96 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopping Cart - Indigenous Art Gallery</title>
-    <meta name="description" content="Review your cart and proceed to checkout.">
-    
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/components.css">
-</head>
-<body>
+    <meta
+      name="description"
+      content="Review your cart and proceed to checkout."
+    />
+
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/components.css" />
+  </head>
+  <body>
     <!-- Header -->
     <header class="site-header">
-        <div class="header-container">
-            <a href="index.html" class="site-logo" id="site-logo-link">Indigenous Art Gallery</a>
-            
-            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
-                ☰
-            </button>
-            
-            <nav class="main-nav" id="main-nav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="artist.html">Artists</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="cart.html" class="cart-icon active">
-                        🛒 Cart
-                        <span class="cart-count" id="cart-count">0</span>
-                    </a></li>
-                </ul>
-            </nav>
-        </div>
+      <div class="header-container">
+        <a href="index.html" class="site-logo" id="site-logo-link"
+          >Indigenous Art Gallery</a
+        >
+
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+          ☰
+        </button>
+
+        <nav class="main-nav" id="main-nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="artist.html">Artists</a></li>
+            <li><a href="about.html">About</a></li>
+            <li>
+              <a href="cart.html" class="cart-icon active">
+                🛒 Cart
+                <span class="cart-count" id="cart-count">0</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <!-- Main Content -->
     <main class="main-content">
-        <div class="section-header">
-            <h1>Shopping Cart</h1>
-            <div class="section-divider"></div>
-        </div>
+      <div class="section-header">
+        <h1>Shopping Cart</h1>
+        <div class="section-divider"></div>
+      </div>
 
-        <div id="cart-content">
-            <!-- Will be populated by JavaScript -->
-        </div>
+      <div id="cart-content">
+        <!-- Will be populated by JavaScript -->
+      </div>
     </main>
 
     <!-- Footer -->
     <footer class="site-footer">
-        <div class="footer-container">
-            <div class="footer-section">
-                <h3>Indigenous Art Gallery</h3>
-                <p>Supporting Indigenous artists and preserving cultural stories through art.</p>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <p><a href="gallery.html">Gallery</a></p>
-                <p><a href="artist.html">Artists</a></p>
-                <p><a href="about.html">About Us</a></p>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p>For inquiries about artwork or artist applications</p>
-                <p>Email: info@indigenousartgallery.com</p>
-            </div>
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>Indigenous Art Gallery</h3>
+          <p>
+            Supporting Indigenous artists and preserving cultural stories
+            through art.
+          </p>
         </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2024 Indigenous Art Gallery. Built with respect for Indigenous culture and artists.</p>
+
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <p><a href="gallery.html">Gallery</a></p>
+          <p><a href="artist.html">Artists</a></p>
+          <p><a href="about.html">About Us</a></p>
         </div>
+
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>For inquiries about artwork or artist applications</p>
+          <p>Email: info@indigenousartgallery.com</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2024 Indigenous Art Gallery. Built with respect for Indigenous
+          culture and artists.
+        </p>
+      </div>
     </footer>
 
-     
     <!-- JavaScript -->
     <script src="js/config.js"></script>
     <script src="js/sheets.js"></script>
     <script src="js/cart.js"></script>
     <script>
-        // Mobile menu toggle
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            document.getElementById('main-nav').classList.toggle('active');
+      // Mobile menu toggle
+      document
+        .getElementById("menu-toggle")
+        .addEventListener("click", function () {
+          document.getElementById("main-nav").classList.toggle("active");
         });
 
-        // Load cart page
-        function loadCartPage() {
-            const items = cart.getItems();
-            const container = document.getElementById('cart-content');
-            
-            if (items.length === 0) {
-                container.innerHTML = `
+      // Load cart page
+      function loadCartPage() {
+        const items = cart.getItems();
+        const container = document.getElementById("cart-content");
+
+        if (items.length === 0) {
+          container.innerHTML = `
                     <div class="empty-cart">
                         <div class="empty-cart-icon">🛒</div>
                         <h2>Your cart is empty</h2>
@@ -98,32 +112,40 @@
                         <a href="gallery.html" class="btn btn-primary btn-large">Browse Gallery</a>
                     </div>
                 `;
-                return;
-            }
+          return;
+        }
 
-            // Build cart HTML
-            let cartItemsHtml = '';
-            items.forEach(item => {
-                cartItemsHtml += `
+        // Build cart HTML
+        let cartItemsHtml = "";
+        items.forEach((item) => {
+          cartItemsHtml += `
                     <div class="cart-item">
-                        <img src="${item.Image_URL}" alt="${item.Title}" class="cart-item-image">
+                        <img src="${item.Image_URL}" alt="${
+            item.Title
+          }" class="cart-item-image">
                         <div class="cart-item-details">
                             <h3>${item.Title}</h3>
-                            <p class="cart-item-artist">by ${item.Artist_Name}</p>
-                            <p class="cart-item-price">${formatPrice(item.Price)}</p>
+                            <p class="cart-item-artist">by ${
+                              item.Artist_Name
+                            }</p>
+                            <p class="cart-item-price">${formatPrice(
+                              item.Price
+                            )}</p>
                         </div>
                         <div class="cart-item-actions">
-                            <button class="btn-remove" onclick="removeFromCart('${item.Artwork_ID}')">Remove</button>
+                            <button class="btn-remove" onclick="removeFromCart('${
+                              item.Artwork_ID
+                            }')">Remove</button>
                         </div>
                     </div>
                 `;
-            });
+        });
 
-            const subtotal = cart.getSubtotal();
-            const shipping = cart.getShipping();
-            const total = cart.getTotal();
+        const subtotal = cart.getSubtotal();
+        const shipping = cart.getShipping();
+        const total = cart.getTotal();
 
-            container.innerHTML = `
+        container.innerHTML = `
                 <div class="cart-container">
                     <div class="cart-items">
                         <h2>Your Items</h2>
@@ -140,14 +162,22 @@
                         
                         <div class="cart-summary-row">
                             <span>Shipping</span>
-                            <span>${shipping === 0 ? 'FREE' : formatPrice(shipping)}</span>
+                            <span>${
+                              shipping === 0 ? "FREE" : formatPrice(shipping)
+                            }</span>
                         </div>
                         
-                        ${subtotal < CONFIG.FREE_SHIPPING_THRESHOLD ? `
+                        ${
+                          subtotal < CONFIG.FREE_SHIPPING_THRESHOLD
+                            ? `
                             <p style="font-size: 0.85rem; color: var(--color-medium-gray); margin-top: var(--spacing-xs);">
-                                Add ${formatPrice(CONFIG.FREE_SHIPPING_THRESHOLD - subtotal)} more for free shipping
+                                Add ${formatPrice(
+                                  CONFIG.FREE_SHIPPING_THRESHOLD - subtotal
+                                )} more for free shipping
                             </p>
-                        ` : ''}
+                        `
+                            : ""
+                        }
                         
                         <div class="cart-summary-row cart-summary-total">
                             <span class="label">Total</span>
@@ -164,43 +194,24 @@
                     </div>
                 </div>
             `;
+      }
+
+      // Proceed to checkout
+      function proceedToCheckout() {
+        const stripeKey = CONFIG.STRIPE_PUBLISHABLE_KEY;
+
+        if (!stripeKey || stripeKey === "YOUR_STRIPE_KEY_HERE") {
+          alert(
+            "Stripe is not yet configured. Please add your Stripe publishable key in js/config.js"
+          );
+          return;
         }
 
-        // Proceed to checkout
-        function proceedToCheckout() {
-            const stripeKey = CONFIG.STRIPE_PUBLISHABLE_KEY;
-            
-            if (!stripeKey || stripeKey === 'YOUR_STRIPE_KEY_HERE') {
-                alert('Stripe is not yet configured. Please add your Stripe publishable key in js/config.js');
-                return;
-            }
-            
-            window.location.href = 'checkout.html';
-        }
+        window.location.href = "checkout.html";
+      }
 
-        // Load and update logo from Google Sheets
-    async function updateLogo() {
-        try {
-            const content = await sheetsAPI.getSiteContent();
-            
-            if (content.Logo) {
-                const logoLink = document.getElementById('site-logo-link');
-                logoLink.innerHTML = `<img src="${content.Logo}" alt="RAC Logo" style="height: 40px;">`;
-            }
-        } catch (error) {
-            console.log('Could not load logo:', error);
-            // Keep text logo as fallback
-        }
-    }
-    
-    // Run when page loads
-    document.addEventListener('DOMContentLoaded', updateLogo);
-
-        // Load page on DOM ready
-        document.addEventListener('DOMContentLoaded', loadCartPage);
-
-
-
+      // Load page on DOM ready
+      document.addEventListener("DOMContentLoaded", loadCartPage);
     </script>
-</body>
+  </body>
 </html>

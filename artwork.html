@@ -1,79 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Artwork Details - Indigenous Art Gallery</title>
-    <meta name="description" content="View artwork details and purchase authentic Indigenous art.">
-    
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/components.css">
-</head>
-<body>
+    <meta
+      name="description"
+      content="View artwork details and purchase authentic Indigenous art."
+    />
+
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/components.css" />
+  </head>
+  <body>
     <!-- Header -->
     <header class="site-header">
-        <div class="header-container">
-            <a href="index.html" class="site-logo" id="site-logo-link">Indigenous Art Gallery</a>
-            
-            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
-                ☰
-            </button>
-            
-            <nav class="main-nav" id="main-nav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="artist.html">Artists</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="cart.html" class="cart-icon">
-                        🛒 Cart
-                        <span class="cart-count" id="cart-count">0</span>
-                    </a></li>
-                </ul>
-            </nav>
-        </div>
+      <div class="header-container">
+        <a href="index.html" class="site-logo" id="site-logo-link"
+          >Indigenous Art Gallery</a
+        >
+
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+          ☰
+        </button>
+
+        <nav class="main-nav" id="main-nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="artist.html">Artists</a></li>
+            <li><a href="about.html">About</a></li>
+            <li>
+              <a href="cart.html" class="cart-icon">
+                🛒 Cart
+                <span class="cart-count" id="cart-count">0</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <!-- Main Content -->
     <main class="main-content">
-        <div id="artwork-container">
-            <!-- Will be populated by JavaScript -->
-        </div>
+      <div id="artwork-container">
+        <!-- Will be populated by JavaScript -->
+      </div>
 
-        <!-- Back to Gallery -->
-        <div class="text-center mt-lg">
-            <a href="gallery.html" class="btn btn-secondary">← Back to Gallery</a>
-        </div>
+      <!-- Back to Gallery -->
+      <div class="text-center mt-lg">
+        <a href="gallery.html" class="btn btn-secondary">← Back to Gallery</a>
+      </div>
     </main>
 
     <!-- Footer -->
     <footer class="site-footer">
-        <div class="footer-container">
-            <div class="footer-section">
-                <h3>Indigenous Art Gallery</h3>
-                <p>Supporting Indigenous artists and preserving cultural stories through art.</p>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <p><a href="gallery.html">Gallery</a></p>
-                <p><a href="artist.html">Artists</a></p>
-                <p><a href="about.html">About Us</a></p>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p>For inquiries about artwork or artist applications</p>
-                <p>Email: info@indigenousartgallery.com</p>
-            </div>
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>Indigenous Art Gallery</h3>
+          <p>
+            Supporting Indigenous artists and preserving cultural stories
+            through art.
+          </p>
         </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2024 Indigenous Art Gallery. Built with respect for Indigenous culture and artists.</p>
-        </div>
-    </footer>
 
-     
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <p><a href="gallery.html">Gallery</a></p>
+          <p><a href="artist.html">Artists</a></p>
+          <p><a href="about.html">About Us</a></p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>For inquiries about artwork or artist applications</p>
+          <p>Email: info@indigenousartgallery.com</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2024 Indigenous Art Gallery. Built with respect for Indigenous
+          culture and artists.
+        </p>
+      </div>
+    </footer>
 
     <!-- JavaScript -->
     <script src="js/config.js"></script>
@@ -82,24 +93,7 @@
     <script src="js/artwork.js"></script>
 
     <script>
-    // Load and update logo from Google Sheets
-    async function updateLogo() {
-        try {
-            const content = await sheetsAPI.getSiteContent();
-            
-            if (content.Logo) {
-                const logoLink = document.getElementById('site-logo-link');
-                logoLink.innerHTML = `<img src="${content.Logo}" alt="RAC Logo" style="height: 40px;">`;
-            }
-        } catch (error) {
-            console.log('Could not load logo:', error);
-            // Keep text logo as fallback
-        }
-    }
-    
-    // Run when page loads
-    document.addEventListener('DOMContentLoaded', updateLogo);
-    document.addEventListener('DOMContentLoaded', loadArtworkPage);
-</script>
-</body>
+      document.addEventListener("DOMContentLoaded", loadArtworkPage);
+    </script>
+  </body>
 </html>

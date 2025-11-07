@@ -1,185 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About - Indigenous Art Gallery</title>
-    <meta name="description" content="Learn about our mission to support Indigenous artists and preserve cultural stories.">
-    
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/components.css">
-</head>
-<body>
+    <meta
+      name="description"
+      content="Learn about our mission to support Indigenous artists and preserve cultural stories."
+    />
+
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/components.css" />
+  </head>
+  <body>
     <!-- Header -->
     <header class="site-header">
-        <div class="header-container">
-            <a href="index.html" class="site-logo" id="site-logo-link">Indigenous Art Gallery</a>
-            
-            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
-                ☰
-            </button>
-            
-            <nav class="main-nav" id="main-nav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="artist.html">Artists</a></li>
-                    <li><a href="about.html" class="active">About</a></li>
-                    <li><a href="cart.html" class="cart-icon">
-                        🛒 Cart
-                        <span class="cart-count" id="cart-count">0</span>
-                    </a></li>
-                </ul>
-            </nav>
-        </div>
+      <div class="header-container">
+        <a href="index.html" class="site-logo" id="site-logo-link"
+          >Indigenous Art Gallery</a
+        >
+
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+          ☰
+        </button>
+
+        <nav class="main-nav" id="main-nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="artist.html">Artists</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li>
+              <a href="cart.html" class="cart-icon">
+                🛒 Cart
+                <span class="cart-count" id="cart-count">0</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <!-- Main Content -->
     <main class="main-content">
-        <div class="section-header">
-            <h1>About Us</h1>
-            <div class="section-divider"></div>
+      <div class="section-header">
+        <h1>About Us</h1>
+        <div class="section-divider"></div>
+      </div>
+
+      <!-- Mission Section -->
+      <section class="content-section">
+        <div id="mission-content">
+          <p class="lead-text">Loading...</p>
         </div>
+      </section>
 
-        <!-- Mission Section -->
-        <section class="content-section">
-            <div id="mission-content">
-                <p class="lead-text">Loading...</p>
-            </div>
-        </section>
+      <!-- Values Section -->
+      <section class="content-section">
+        <h2>Our Commitment</h2>
+        <div class="section-divider"></div>
 
-        <!-- Values Section -->
-        <section class="content-section">
-            <h2>Our Commitment</h2>
-            <div class="section-divider"></div>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-lg); margin-top: var(--spacing-lg);">
-                <div style="padding: var(--spacing-md); background-color: var(--color-off-white); border-radius: var(--border-radius); border-left: 4px solid var(--color-ochre);">
-                    <h3>Supporting Artists</h3>
-                    <p>We work directly with Indigenous artists, ensuring fair compensation and respect for their work and cultural heritage.</p>
-                </div>
-                
-                <div style="padding: var(--spacing-md); background-color: var(--color-off-white); border-radius: var(--border-radius); border-left: 4px solid var(--color-deep-red);">
-                    <h3>Cultural Respect</h3>
-                    <p>Each artwork carries deep cultural significance. We honor the stories and traditions embedded in every piece.</p>
-                </div>
-                
-                <div style="padding: var(--spacing-md); background-color: var(--color-off-white); border-radius: var(--border-radius); border-left: 4px solid var(--color-earth-brown);">
-                    <h3>Authenticity</h3>
-                    <p>All artworks are created by Indigenous artists, with verified provenance and cultural connections.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- How It Works -->
-        <section class="content-section">
-            <h2>How It Works</h2>
-            <div class="section-divider"></div>
-            
-            <div style="max-width: 800px; margin: var(--spacing-lg) auto;">
-                <div style="margin-bottom: var(--spacing-md); padding-left: var(--spacing-md); border-left: 3px solid var(--color-ochre);">
-                    <h3>1. Browse & Discover</h3>
-                    <p>Explore our gallery of authentic Indigenous artwork, each with its unique story and cultural significance.</p>
-                </div>
-                
-                <div style="margin-bottom: var(--spacing-md); padding-left: var(--spacing-md); border-left: 3px solid var(--color-ochre);">
-                    <h3>2. Purchase with Confidence</h3>
-                    <p>Secure checkout with Stripe. All purchases directly support the artists and their communities.</p>
-                </div>
-                
-                <div style="margin-bottom: var(--spacing-md); padding-left: var(--spacing-md); border-left: 3px solid var(--color-ochre);">
-                    <h3>3. Delivered with Care</h3>
-                    <p>Artworks are carefully packaged and shipped with respect for their cultural and artistic value.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section class="content-section text-center">
-            <h2>Get In Touch</h2>
-            <div class="section-divider"></div>
-            <p class="lead-text mb-md">Have questions about our artworks or interested in showcasing your work?</p>
-            <p style="font-size: 1.1rem; margin-bottom: var(--spacing-md);">
-                Email: <a href="mailto:info@indigenousartgallery.com">info@indigenousartgallery.com</a>
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+          "
+        >
+          <div
+            style="
+              padding: var(--spacing-md);
+              background-color: var(--color-off-white);
+              border-radius: var(--border-radius);
+              border-left: 4px solid var(--color-ochre);
+            "
+          >
+            <h3>Supporting Artists</h3>
+            <p>
+              We work directly with Indigenous artists, ensuring fair
+              compensation and respect for their work and cultural heritage.
             </p>
-            <a href="gallery.html" class="btn btn-primary btn-large">Explore Gallery</a>
-        </section>
+          </div>
+
+          <div
+            style="
+              padding: var(--spacing-md);
+              background-color: var(--color-off-white);
+              border-radius: var(--border-radius);
+              border-left: 4px solid var(--color-deep-red);
+            "
+          >
+            <h3>Cultural Respect</h3>
+            <p>
+              Each artwork carries deep cultural significance. We honor the
+              stories and traditions embedded in every piece.
+            </p>
+          </div>
+
+          <div
+            style="
+              padding: var(--spacing-md);
+              background-color: var(--color-off-white);
+              border-radius: var(--border-radius);
+              border-left: 4px solid var(--color-earth-brown);
+            "
+          >
+            <h3>Authenticity</h3>
+            <p>
+              All artworks are created by Indigenous artists, with verified
+              provenance and cultural connections.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- How It Works -->
+      <section class="content-section">
+        <h2>How It Works</h2>
+        <div class="section-divider"></div>
+
+        <div style="max-width: 800px; margin: var(--spacing-lg) auto">
+          <div
+            style="
+              margin-bottom: var(--spacing-md);
+              padding-left: var(--spacing-md);
+              border-left: 3px solid var(--color-ochre);
+            "
+          >
+            <h3>1. Browse & Discover</h3>
+            <p>
+              Explore our gallery of authentic Indigenous artwork, each with its
+              unique story and cultural significance.
+            </p>
+          </div>
+
+          <div
+            style="
+              margin-bottom: var(--spacing-md);
+              padding-left: var(--spacing-md);
+              border-left: 3px solid var(--color-ochre);
+            "
+          >
+            <h3>2. Purchase with Confidence</h3>
+            <p>
+              Secure checkout with Stripe. All purchases directly support the
+              artists and their communities.
+            </p>
+          </div>
+
+          <div
+            style="
+              margin-bottom: var(--spacing-md);
+              padding-left: var(--spacing-md);
+              border-left: 3px solid var(--color-ochre);
+            "
+          >
+            <h3>3. Delivered with Care</h3>
+            <p>
+              Artworks are carefully packaged and shipped with respect for their
+              cultural and artistic value.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section class="content-section text-center">
+        <h2>Get In Touch</h2>
+        <div class="section-divider"></div>
+        <p class="lead-text mb-md">
+          Have questions about our artworks or interested in showcasing your
+          work?
+        </p>
+        <p style="font-size: 1.1rem; margin-bottom: var(--spacing-md)">
+          Email:
+          <a href="mailto:info@indigenousartgallery.com"
+            >info@indigenousartgallery.com</a
+          >
+        </p>
+        <a href="gallery.html" class="btn btn-primary btn-large"
+          >Explore Gallery</a
+        >
+      </section>
     </main>
 
     <!-- Footer -->
     <footer class="site-footer">
-        <div class="footer-container">
-            <div class="footer-section">
-                <h3>Indigenous Art Gallery</h3>
-                <p>Supporting Indigenous artists and preserving cultural stories through art.</p>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <p><a href="gallery.html">Gallery</a></p>
-                <p><a href="artist.html">Artists</a></p>
-                <p><a href="about.html">About Us</a></p>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p>For inquiries about artwork or artist applications</p>
-                <p>Email: info@indigenousartgallery.com</p>
-            </div>
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>Indigenous Art Gallery</h3>
+          <p>
+            Supporting Indigenous artists and preserving cultural stories
+            through art.
+          </p>
         </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2024 Indigenous Art Gallery. Built with respect for Indigenous culture and artists.</p>
-        </div>
-    </footer>
 
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <p><a href="gallery.html">Gallery</a></p>
+          <p><a href="artist.html">Artists</a></p>
+          <p><a href="about.html">About Us</a></p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>For inquiries about artwork or artist applications</p>
+          <p>Email: info@indigenousartgallery.com</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2024 Indigenous Art Gallery. Built with respect for Indigenous
+          culture and artists.
+        </p>
+      </div>
+    </footer>
 
     <!-- JavaScript -->
     <script src="js/config.js"></script>
     <script src="js/sheets.js"></script>
     <script src="js/cart.js"></script>
     <script>
-        // Mobile menu toggle
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            document.getElementById('main-nav').classList.toggle('active');
+      // Mobile menu toggle
+      document
+        .getElementById("menu-toggle")
+        .addEventListener("click", function () {
+          document.getElementById("main-nav").classList.toggle("active");
         });
 
-        // Load about page content
-        async function loadAboutPage() {
-            try {
-                const content = await sheetsAPI.getSiteContent();
-                
-                if (content.Mission) {
-                    document.getElementById('mission-content').innerHTML = 
-                        `<p class="lead-text">${content.Mission}</p>`;
-                }
-
-            } catch (error) {
-                console.error('Error loading about page:', error);
-            }
-        }
-
-        
-    // Load and update logo from Google Sheets
-    async function updateLogo() {
+      // Load about page content
+      async function loadAboutPage() {
         try {
-            const content = await sheetsAPI.getSiteContent();
-            
-            if (content.Logo) {
-                const logoLink = document.getElementById('site-logo-link');
-                logoLink.innerHTML = `<img src="${content.Logo}" alt="RAC Logo" style="height: 40px;">`;
-            }
+          const content = await sheetsAPI.getSiteContent();
+
+          if (content.Mission) {
+            document.getElementById(
+              "mission-content"
+            ).innerHTML = `<p class="lead-text">${content.Mission}</p>`;
+          }
         } catch (error) {
-            console.log('Could not load logo:', error);
-            // Keep text logo as fallback
+          console.error("Error loading about page:", error);
         }
-    }
-    
-    // Run when page loads
-    document.addEventListener('DOMContentLoaded', updateLogo);
+      }
 
-
-        document.addEventListener('DOMContentLoaded', loadAboutPage);
+      document.addEventListener("DOMContentLoaded", loadAboutPage);
     </script>
-</body>
+  </body>
 </html>

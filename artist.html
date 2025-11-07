@@ -151,27 +151,42 @@
                 <div class="gallery-grid">
             `;
 
-            for (const artist of artists) {
-                const artworks = await sheetsAPI.getArtworksByArtist(artist.Artist_ID);
-                const artworkCount = artworks.length;
-                // Use artist's photo instead of artwork image
-                const featuredImage = artist.Photo_URL || 'https://via.placeholder.com/300x300?text=No+Image';
+        for (const artist of artists) {
+          const artworks = await sheetsAPI.getArtworksByArtist(
+            artist.Artist_ID
+          );
+          const artworkCount = artworks.length;
+          // Use artist's photo instead of artwork image
+          const featuredImage =
+            artist.Photo_URL ||
+            "https://via.placeholder.com/300x300?text=No+Image";
 
-                html += `
+          html += `
                     <div class="artwork-card">
-                        <img src="${featuredImage}" alt="${artist.Name}" class="artwork-card-image" style="object-fit: cover;">
+                        <img src="${featuredImage}" alt="${
+            artist.Name
+          }" class="artwork-card-image" style="object-fit: cover;">
                         <div class="artwork-card-content">
                             <h3 class="artwork-card-title">${artist.Name}</h3>
-                            <p class="artwork-card-artist">${artist.Country_Connection || 'Indigenous Artist'}</p>
-                            <p class="artwork-card-story">${artist.Bio.substring(0, 120)}...</p>
+                            <p class="artwork-card-artist">${
+                              artist.Country_Connection || "Indigenous Artist"
+                            }</p>
+                            <p class="artwork-card-story">${artist.Bio.substring(
+                              0,
+                              120
+                            )}...</p>
                             <div class="artwork-card-footer">
-                                <span class="artwork-card-price">${artworkCount} artwork${artworkCount !== 1 ? 's' : ''}</span>
-                                <a href="artist.html?id=${artist.Artist_ID}" class="artwork-card-details">View Profile →</a>
+                                <span class="artwork-card-price">${artworkCount} artwork${
+            artworkCount !== 1 ? "s" : ""
+          }</span>
+                                <a href="artist.html?id=${
+                                  artist.Artist_ID
+                                }" class="artwork-card-details">View Profile →</a>
                             </div>
                         </div>
                     </div>
                 `;
-            }
+        }
 
         html += "</div>";
         container.innerHTML = html;
@@ -246,24 +261,6 @@
 
         container.innerHTML = html;
       }
-
-      // Load and update logo from Google Sheets
-      async function updateLogo() {
-        try {
-          const content = await sheetsAPI.getSiteContent();
-
-          if (content.Logo) {
-            const logoLink = document.getElementById("site-logo-link");
-            logoLink.innerHTML = `<img src="${content.Logo}" alt="RAC Logo" style="height: 40px;">`;
-          }
-        } catch (error) {
-          console.log("Could not load logo:", error);
-          // Keep text logo as fallback
-        }
-      }
-
-      // Run when page loads
-      document.addEventListener("DOMContentLoaded", updateLogo);
 
       // Load page on DOM ready
       document.addEventListener("DOMContentLoaded", loadArtistPage);
