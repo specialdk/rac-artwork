@@ -20,7 +20,9 @@
     <!-- Header -->
     <header class="site-header">
       <div class="header-container">
-        <a href="index.html" class="site-logo" id="site-logo-link">Indigenous Art Gallery</a>
+        <a href="index.html" class="site-logo" id="site-logo-link"
+          >Indigenous Art Gallery</a
+        >
 
         <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
           ☰
@@ -163,19 +165,24 @@
             document.getElementById("hero-intro").textContent = content.Intro;
           }
 
-          // Update hero background image
-          if (content.Hero) {
-            const heroSection = document.querySelector(".hero");
+          // Update hero background image (only if Hero URL exists)
+          const heroSection = document.querySelector(".hero");
+          if (content.Hero && content.Hero.trim() !== "") {
             heroSection.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('${content.Hero}')`;
             heroSection.style.backgroundSize = "cover";
             heroSection.style.backgroundPosition = "center";
+          } else {
+            // Clear inline styles so CSS pattern can show
+            heroSection.style.backgroundImage = "";
+            heroSection.style.backgroundSize = "";
+            heroSection.style.backgroundPosition = "";
           }
 
-        // Update logo if provided
-if (content.Logo) {
-    const logoLink = document.getElementById('site-logo-link');
-    logoLink.innerHTML = `<img src="${content.Logo}" alt="RAC Logo" style="height: 40px;">`;
-}
+          // Update logo if provided
+          if (content.Logo) {
+            const logoLink = document.getElementById("site-logo-link");
+            logoLink.innerHTML = `<img src="${content.Logo}" alt="RAC Logo" style="height: 40px;">`;
+          }
 
           // Update mission
           if (content.Mission) {
