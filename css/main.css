@@ -377,7 +377,7 @@ p {
 }
 
 .hero .lead-text {
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto var(--spacing-lg);
   color: var(--color-white);
   font-weight: 600;
