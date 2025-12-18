@@ -440,8 +440,8 @@ p {
 }
 
 .btn-primary {
-  background-color: var(--color-ochre);
-  color: white;
+  background-color: var(--color-white);
+  color: var(--color-ochre);
 }
 
 .btn-primary:hover {
