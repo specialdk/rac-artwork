@@ -234,7 +234,7 @@ p {
 .hero {
   position: relative;
   background-color: var(--color-ochre);
-  padding: var(--spacing-xl) var(--spacing-md);
+  padding: var(--spacing-lg) var(--spacing-md);
   text-align: center;
   border-bottom: 3px solid var(--color-deep-red);
   overflow: hidden;
